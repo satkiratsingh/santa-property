@@ -15,7 +15,7 @@ function App() {
           />
           <img
             src={house}
-            className="absolute lg:w-[750px] bottom-0 right-0 z-10 max-lg:w-[500px]"
+            className="animate-slide-left absolute lg:w-[750px] bottom-0 right-0 z-10 max-lg:w-[500px]"
             alt={house}
           />
         </div>
@@ -23,7 +23,7 @@ function App() {
         <Navbar />
 
         <div className="z-30 flex flex-col justify-center flex-1 px-20 max-md:p-12 max-sm:p-4 max-md:justify-start">
-          <div className="max-w-[500px] max-sm:mt-6 max-sm:max-w-[300px] flex flex-col items-start max-sm:gap-4 gap-6">
+          <div className="animate-slide-right max-w-[500px] max-sm:mt-6 max-sm:max-w-[300px] flex flex-col items-start max-sm:gap-4 gap-6">
             <h1 className="text-white max-sm:text-[30px] max-sm:leading-[40px] leading-[60px] text-[52px] font-bold">
               Your Dream Property Awaits
             </h1>

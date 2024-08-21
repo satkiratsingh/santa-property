@@ -10,18 +10,24 @@ const Navbar = () => {
   return (
     <nav
       className={`relative flex ${
-        open ? "flex-col max-sm:h-[100vh]" : "flex-row"
-      } items-center justify-between px-20 pt-8 max-sm:p-4 transition-all duration-300 ease-in-out`}
+        open
+          ? "max-sm:flex-col max-sm:bg-gradient-to-b from-[#00985B] to-[#00492C] max-sm:max-h-[100vh] max-sm:h-[100vh]"
+          : "flex-row max-sm:max-h-[80px]"
+      } items-center justify-between max-sm:p-4 px-20 pt-8 transition-all duration-300 ease-in-out`}
     >
       <span
         className={`${
-          open ? "block absolute top-4 right-2" : "hidden"
-        } material-symbols-outlined text-[30px] text-white`}
+          open ? "max-sm:block absolute top-4 right-2" : "hidden"
+        } sm:hidden material-symbols-outlined text-[30px] text-white`}
         onClick={() => setOpen(false)}
       >
         close
       </span>
-      <h1 className="text-[20px] sm:basis-1/3 font-bold text-white">
+      <h1
+        className={`text-[20px] ${
+          !open ? "sm:basis-1/3" : "basis-1/3"
+        } font-bold text-white`}
+      >
         Santa Property
       </h1>
       <span
@@ -35,7 +41,7 @@ const Navbar = () => {
       <div
         className={`flex items-center justify-center ${
           open ? "max-sm:flex-col" : "max-sm:hidden"
-        } gap-4 text-white basis-1/3`}
+        } gap-6 text-white basis-1/3`}
       >
         <a className="hover:font-bold" href="#/">
           Home

@@ -9,11 +9,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`relative flex ${
+      className={`z-50 flex ${
         open
-          ? "max-sm:flex-col max-sm:bg-gradient-to-b from-[#00985B] to-[#00492C] max-sm:max-h-[100vh] max-sm:h-[100vh]"
-          : "flex-row max-sm:max-h-[80px]"
-      } items-center justify-between max-sm:p-4 px-20 pt-8 transition-all duration-300 ease-in-out`}
+          ? "fixed w-full max-sm:flex-col max-sm:bg-gradient-to-b from-[#00985B] to-[#00492C] max-sm:max-h-[100vh] max-sm:h-[100vh]"
+          : "relative flex-row max-sm:max-h-[80px]"
+      } items-center justify-between max-sm:p-4 max-md:px-12 max-md:pt-6 px-20 pt-8 transition-all duration-300 ease-in-out`}
     >
       <span
         className={`${
@@ -58,7 +58,7 @@ const Navbar = () => {
           open ? "max-sm:flex-col" : "max-sm:hidden"
         } basis-1/3`}
       >
-        <button className="hover:shadow-[0_0_20px_1px_#2d2d2d] self-end px-8 py-2 bg-white text-[#048853] w-32 hover:font-bold font-semibold">
+        <button className="hover:shadow-[0_0_14px_1px_#2d2d2d] self-end px-8 py-2 bg-white text-[#048853] w-32 hover:font-bold font-semibold">
           Find
         </button>
       </div>

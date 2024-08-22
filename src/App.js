@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import sidelayer from "./images/sidelayer_hero_bg.png";
 import house from "./images/house_hero_bg.png";
-
+import Services from "./components/Services";
 function App() {
   return (
     <div>
@@ -43,6 +43,8 @@ function App() {
           </div>
         </div>
       </header>
+
+      <Services />
     </div>
   );
 }

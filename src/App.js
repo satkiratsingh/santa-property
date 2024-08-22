@@ -2,13 +2,12 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import sidelayer from "./images/sidelayer_hero_bg.png";
 import house from "./images/house_hero_bg.png";
-import { servicesCard } from "./static/servicesContent";
-import ServicesCard from "./components/Services/ServicesCard";
+import Carousel from "./components/Services/Carousel";
 
 function App() {
   return (
     <div>
-      <header className="h-[100vh] relative flex flex-col bg-gradient-to-r from-[#048853] to-[#025132]">
+      <header className="h-[100vh] max-md:h-[85vh] relative flex flex-col bg-gradient-to-br from-[#048853] to-[#02452A]">
         <div className="absolute inset-0">
           <img
             src={sidelayer}
@@ -46,19 +45,14 @@ function App() {
         </div>
       </header>
 
-      <section className="container flex flex-col justify-center px-20 mx-auto max-sm:p-4 py-36">
-        <h1 className="text-[48px] font-semibold text-center text-[#048853] ">
+      <section className="container flex flex-col justify-center px-20 mx-auto max-sm:p-4 py-28">
+        <h1 className="text-[48px] max-sm:text-[30px] font-semibold text-center text-[#048853] ">
           Our Services
         </h1>
-        <p className="mb-8 text-center text-[18px] text-black ">
+        <p className="mb-8 max-sm:mb-4 text-center text-[18px] max-sm:text-[14px] text-black ">
           Your dream property is here to be the solution for you
         </p>
-        <div className="flex flex-row items-center px-8 py-4 overflow-x-auto overflow-y-hidden md:gap-4 max-md:space-x-8 md:justify-center snap-center md:overflow-x-hidden snap-x snap-mandatory">
-          {servicesCard &&
-            servicesCard.map((item, index) => (
-              <ServicesCard key={index} {...item} />
-            ))}
-        </div>
+        <Carousel />
       </section>
     </div>
   );

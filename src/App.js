@@ -2,7 +2,9 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import sidelayer from "./images/sidelayer_hero_bg.png";
 import house from "./images/house_hero_bg.png";
-import Services from "./components/Services";
+import { servicesCard } from "./static/servicesContent";
+import ServicesCard from "./components/Services/ServicesCard";
+
 function App() {
   return (
     <div>
@@ -44,7 +46,20 @@ function App() {
         </div>
       </header>
 
-      <Services />
+      <section className="container flex flex-col justify-center px-20 mx-auto max-sm:p-4 py-36">
+        <h1 className="text-[48px] font-semibold text-center text-[#048853] ">
+          Our Services
+        </h1>
+        <p className="mb-8 text-center text-[18px] text-black ">
+          Your dream property is here to be the solution for you
+        </p>
+        <div className="flex flex-row items-center px-8 py-4 overflow-x-auto overflow-y-hidden md:gap-4 max-md:space-x-8 md:justify-center snap-center md:overflow-x-hidden snap-x snap-mandatory">
+          {servicesCard &&
+            servicesCard.map((item, index) => (
+              <ServicesCard key={index} {...item} />
+            ))}
+        </div>
+      </section>
     </div>
   );
 }

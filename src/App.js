@@ -2,11 +2,12 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import sidelayer from "./images/sidelayer_hero_bg.png";
 import house from "./images/house_hero_bg.png";
+import Carousel from "./components/Services/Carousel";
 
 function App() {
   return (
     <div>
-      <header className="h-[100vh] relative flex flex-col bg-gradient-to-r from-[#048853] to-[#025132]">
+      <header className="h-[100vh] max-md:h-[85vh] relative flex flex-col bg-gradient-to-br from-[#048853] to-[#02452A]">
         <div className="absolute inset-0">
           <img
             src={sidelayer}
@@ -43,6 +44,16 @@ function App() {
           </div>
         </div>
       </header>
+
+      <section className="container flex flex-col justify-center px-20 mx-auto max-sm:p-4 py-28">
+        <h1 className="text-[48px] max-sm:text-[30px] font-semibold text-center text-[#048853] ">
+          Our Services
+        </h1>
+        <p className="mb-8 max-sm:mb-4 text-center text-[18px] max-sm:text-[14px] text-black ">
+          Your dream property is here to be the solution for you
+        </p>
+        <Carousel />
+      </section>
     </div>
   );
 }

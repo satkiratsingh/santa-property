@@ -62,15 +62,15 @@ function App() {
 
       <section
         id="property-listings"
-        className="container flex flex-col items-center justify-center p-20 mx-auto"
+        className="container flex flex-col items-center justify-center p-20 mx-auto max-md:p-2"
       >
         <h1 className="text-[48px] max-sm:text-[30px] font-semibold text-center text-[#048853] ">
           Property Listings
         </h1>
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-2">
           {propertyListings &&
             propertyListings.map((item, index) => (
-              <div key={index} className="w-full p-6">
+              <div key={index} className="w-full p-6 max-md:p-4">
                 <PropertyCard {...item} />
               </div>
             ))}

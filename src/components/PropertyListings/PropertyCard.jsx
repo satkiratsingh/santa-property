@@ -20,22 +20,34 @@ const PropertyCard = ({ image, price, location, bed, bath, land_size }) => {
       <div className="flex flex-row items-center justify-between w-full px-4 py-2 mb-6 bg-white">
         <div>
           <div className="flex flex-row items-center">
-            <img src={features_bed} className="w-6 h-6" alt="property" />
-            <p className="text-[14px] font-semibold ml-2">{bed}</p>
+            <div className="flex items-center justify-center w-6 h-6">
+              <img src={features_bed} className="w-6 h-6" alt="property" />
+            </div>
+            <p className="text-[14px] max-md:text-[12px] font-semibold ml-2">
+              {bed}
+            </p>
           </div>
           <p className="text-[12px]">Bedrooms</p>
         </div>
         <div>
           <div className="flex flex-row items-center">
-            <img src={features_bath} className="w-4 h-4" alt="property" />
-            <p className="text-[14px] font-semibold ml-2">{bath}</p>
+            <div className="flex items-center justify-center w-6 h-6">
+              <img src={features_bath} className="w-4 h-4" alt="property" />
+            </div>
+            <p className="text-[14px] max-md:text-[12px] font-semibold ml-2">
+              {bath}
+            </p>
           </div>
           <p className="text-[12px]">Bathrooms</p>
         </div>
         <div>
           <div className="flex flex-row items-center">
-            <img src={features_land} className="w-6 h-6" alt="property" />
-            <p className="text-[12px] font-semibold ml-2">{land_size}</p>
+            <div className="flex items-center justify-center w-6 h-6">
+              <img src={features_land} className="w-6 h-6" alt="property" />
+            </div>
+            <p className="text-[12px] max-md:text-[10px] font-semibold ml-2">
+              {land_size}
+            </p>
           </div>
           <p className="text-[12px]">Property Size</p>
         </div>

@@ -46,13 +46,13 @@ const Navbar = () => {
           open ? "max-sm:flex-col" : "max-sm:hidden"
         } gap-6 text-white md:basis-1/3`}
       >
-        <a className="hover:font-bold" href="#/">
+        <a className="hover:font-bold" href="/">
           Home
         </a>
-        <a className="hover:font-bold" href="#/about">
+        <a className="hover:font-bold" href="/#services">
           About
         </a>
-        <a className="hover:font-bold" href="#/contact">
+        <a className="hover:font-bold" href="/#contact">
           Contact
         </a>
       </div>
@@ -61,9 +61,12 @@ const Navbar = () => {
           open ? "max-sm:flex-col" : "max-sm:hidden"
         } md:basis-1/3`}
       >
-        <button className="hover:shadow-[0_0_14px_1px_#2d2d2d] self-end px-8 py-2 bg-white text-[#048853] w-32 hover:font-bold font-semibold">
-          Find
-        </button>
+        <a
+          href="/#search"
+          className="hover:shadow-[0_0_14px_1px_#2d2d2d] flex items-center justify-center self-end px-8 py-2 bg-white text-[#048853] w-32 hover:font-bold font-semibold"
+        >
+          Search
+        </a>
       </div>
     </nav>
   );

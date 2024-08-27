@@ -5,6 +5,8 @@ import house from "./images/house_hero_bg.png";
 import Carousel from "./components/Services/Carousel";
 import PropertyCard from "./components/PropertyListings/PropertyCard";
 import { propertyListings } from "./static/propertyListings";
+import greenInteriorRoom from "./images/green-interior-room.png";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
@@ -61,8 +63,29 @@ function App() {
       </section>
 
       <section
+        id="search"
+        className="relative w-full h-[100vh] max-sm:h-[80vh] overflow-hidden"
+      >
+        <img
+          src={greenInteriorRoom}
+          alt="green interior room"
+          className="object-cover object-left h-full md:w-full"
+        />
+        <div className="absolute inset-0 flex flex-col items-center mt-32 max-sm:mt-12">
+          <h1 className="text-[48px] max-sm:text-[30px] font-semibold text-center text-white ">
+            Find Your Dream Property
+          </h1>
+          <p className="text-white max-sm:max-w-[90%] max-w-[60%] text-[24px] max-sm:text-[18px] text-center">
+            Now you can save yourself all the stress, time, and hidden costs,
+            with hundreds of homes for you
+          </p>
+          <SearchBar />
+        </div>
+      </section>
+
+      <section
         id="property-listings"
-        className="container flex flex-col items-center justify-center p-20 mx-auto max-md:p-2"
+        className="flex flex-col items-center justify-center p-20 max-md:py-6 max-md:p-2"
       >
         <h1 className="text-[48px] max-sm:text-[30px] font-semibold text-center text-[#048853] ">
           Property Listings

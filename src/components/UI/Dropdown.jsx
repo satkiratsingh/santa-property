@@ -9,7 +9,7 @@ const Dropdown = ({ title, data, icon, selectedItem }) => {
   };
 
   return (
-    <div className="h-full w-[180px] max-sm:w-[120px] max-md:w-[180px]">
+    <div className="relative z-40 h-full w-[180px] max-sm:w-[120px] max-md:w-[180px]">
       <div
         onClick={() => setOpen(!open)}
         className="text-[#00985B] selection:bg-transparent hover:cursor-pointer flex flex-row items-center justify-center h-full gap-1"
@@ -23,7 +23,7 @@ const Dropdown = ({ title, data, icon, selectedItem }) => {
 
       <div
         style={{ maxHeight: open ? "150px" : "0" }}
-        className="z-40 bg-[#ffffffc5] h-fit overflow-scroll rounded-lg transition-all duration-300 ease-in-out"
+        className="z-40 bg-[#ffffffc5] h-fit thin-scrollbar overflow-y-scroll rounded-lg transition-all duration-300 ease-in-out"
       >
         {data &&
           data.length > 0 &&

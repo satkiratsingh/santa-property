@@ -46,13 +46,21 @@ const Navbar = ({ hideSideButton }) => {
           open ? "max-sm:flex-col" : "max-sm:hidden"
         } gap-6 text-white md:basis-1/3`}
       >
-        <a className="hover:font-bold" href="/">
+        <a onClick={() => setOpen(false)} className="hover:font-bold" href="/">
           Home
         </a>
-        <a className="hover:font-bold" href="/#services">
+        <a
+          onClick={() => setOpen(false)}
+          className="hover:font-bold"
+          href="/#services"
+        >
           About
         </a>
-        <a className="hover:font-bold" href="/#contact">
+        <a
+          onClick={() => setOpen(false)}
+          className="hover:font-bold"
+          href="/#contact"
+        >
           Contact
         </a>
       </div>

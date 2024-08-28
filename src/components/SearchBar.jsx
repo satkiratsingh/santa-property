@@ -1,73 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Dropdown from "./UI/Dropdown";
+import { useSearchStore } from "../stores/useSearchStore";
 import { useNavigate } from "react-router-dom";
 
-const SearchBar = ({
-  setSearchQuery,
-  setSearchFilters,
-  prefilledSearchFilters,
-  prefilledSearchInput = "",
-}) => {
+const SearchBar = ({ onSearch }) => {
   const navigate = useNavigate();
 
-  const [selectedPropertyType, setSelectedPropertyType] = useState({
-    item: prefilledSearchFilters?.propertyType || "Residential",
-    index: 0,
-  });
-  const [selectedPriceRange, setSelectedPriceRange] = useState({
-    item: prefilledSearchFilters?.priceRange || "20-40L",
-    index: 0,
-  });
-
-  const [searchInput, setSearchInput] = useState(prefilledSearchInput);
-
-  const handleSubmit = (e) => {
-    console.log("Clicked on search button");
-
-    e.preventDefault();
-
-    const searchFilters = {
-      propertyType: selectedPropertyType.item,
-      priceRange: selectedPriceRange.item,
-    };
-
-    // Check if the page location is not /properties
-    if (window.location.pathname !== "/properties") {
-      navigate("/properties", {
-        state: {
-          prefilledSearchFilters: searchFilters,
-          prefilledSearchInput: searchInput,
-        },
-      });
-    } else {
-      setSearchQuery(searchInput);
-      setSearchFilters(searchFilters);
-    }
-  };
-
-  useEffect(() => {
-    if (prefilledSearchInput.length > 0) {
-      setSearchQuery(prefilledSearchInput);
-    }
-    if (
-      prefilledSearchFilters?.propertyType &&
-      prefilledSearchFilters?.priceRange
-    ) {
-      setSearchFilters(prefilledSearchFilters);
-    }
-  }, [
-    prefilledSearchInput,
-    prefilledSearchFilters,
-    setSearchFilters,
-    setSearchQuery,
-  ]);
+  const query = useSearchStore((state) => state.query);
+  // const propertyType = useSearchStore((state) => state.propertyType);
+  // const priceRange = useSearchStore((state) => state.priceRange);
+  const setQuery = useSearchStore((state) => state.setQuery);
+  const setPropertyType = useSearchStore((state) => state.setPropertyType);
+  const setPriceRange = useSearchStore((state) => state.setPriceRange);
 
   return (
     <div className="flex items-center justify-center max-md:flex-col">
       <div className="flex w-full max-md:h-[60px] max-sm:h-[40px] h-[80px]">
         <div
           className="flex-1 bg-[#ffffffc5] flex items-center rounded-l-lg max-md:rounded-bl-none h-full"
-          style={{ boxShadow: searchInput.length > 0 && "0 0 10px white" }}
+          style={{ boxShadow: query.length > 0 && "0 0 10px white" }}
         >
           <div className="flex flex-row h-full max-md:hidden">
             <Dropdown
@@ -78,9 +29,7 @@ const SearchBar = ({
               }
               data={["Residential", "Commercial"]}
               title={"Property Type"}
-              selectedItem={(item, index) =>
-                setSelectedPropertyType({ item, index })
-              }
+              selectedItem={(item, index) => setPropertyType({ item, index })}
             />
             <div className="h-full border-l-2 border-r-2 border-[#00985B]">
               <Dropdown
@@ -98,9 +47,7 @@ const SearchBar = ({
                   "10CR-20CR",
                 ]}
                 title={"Price Range"}
-                selectedItem={(item, index) =>
-                  setSelectedPriceRange({ item, index })
-                }
+                selectedItem={(item, index) => setPriceRange({ item, index })}
               />
             </div>
           </div>
@@ -108,21 +55,28 @@ const SearchBar = ({
             type="text"
             className="flex-1 max-sm:text-[14px] w-full h-full px-4 bg-transparent text-[#00985B] outline-none"
             placeholder="Location, Property Name, etc."
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
         </div>
         <button
           className="bg-[#00985B] hover:font-bold rounded-r-lg font-medium max-sm:text-[14px] text-[28px] max-sm:w-[70px] w-[140px] text-white h-full"
-          style={{ boxShadow: searchInput.length > 0 && "0 0 10px #6bbb9b" }}
-          onClick={handleSubmit}
+          style={{ boxShadow: query.length > 0 && "0 0 10px #6bbb9b" }}
+          onClick={(e) => {
+            e.preventDefault();
+            if (window.location.pathname !== "/properties") {
+              navigate("/properties");
+            } else {
+              onSearch(query);
+            }
+          }}
         >
           Search
         </button>
       </div>
 
       <div className="flex md:hidden w-full h-[60px] max-sm:h-[30px]">
-        <div className="h-full z-40 border-t-2 border-[#00985B] rounded-bl-lg bg-[#ffffffc5]">
+        <div className="h-full backdrop-blur-2xl z-40 border-t-2 border-[#00985B] rounded-bl-lg bg-[#ffffffc5]">
           <Dropdown
             icon={
               <span className="material-symbols-outlined text-[28px] max-sm:text-[18px]">
@@ -131,9 +85,7 @@ const SearchBar = ({
             }
             data={["Residential", "Commercial"]}
             title={"Property Type"}
-            selectedItem={(item, index) =>
-              setSelectedPropertyType({ item, index })
-            }
+            selectedItem={(item, index) => setPropertyType({ item, index })}
           />
         </div>
         <div className="h-full backdrop-blur-2xl z-40 border-t-2 rounded-br-lg bg-[#ffffffc5] border-l-2 border-[#00985B]">
@@ -152,9 +104,7 @@ const SearchBar = ({
               "10CR-20CR",
             ]}
             title={"Price Range"}
-            selectedItem={(item, index) =>
-              setSelectedPriceRange({ item, index })
-            }
+            selectedItem={(item, index) => setPriceRange({ item, index })}
           />
         </div>
       </div>

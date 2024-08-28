@@ -28,7 +28,7 @@ const PropertyCard = ({
       </div>
 
       <div className="flex flex-row items-center justify-between w-full px-4 py-2 mb-6 bg-white">
-        <div>
+        <div className="flex flex-col items-center">
           <div className="flex flex-row items-center">
             <div className="flex items-center justify-center w-6 h-6">
               <img src={features_bed} className="w-6 h-6" alt="property" />
@@ -39,7 +39,7 @@ const PropertyCard = ({
           </div>
           <p className="text-[12px]">Bedrooms</p>
         </div>
-        <div>
+        <div className="flex flex-col items-center">
           <div className="flex flex-row items-center">
             <div className="flex items-center justify-center w-6 h-6">
               <img src={features_bath} className="w-4 h-4" alt="property" />
@@ -50,7 +50,7 @@ const PropertyCard = ({
           </div>
           <p className="text-[12px]">Bathrooms</p>
         </div>
-        <div>
+        <div className="flex flex-col items-center">
           <div className="flex flex-row items-center">
             <div className="flex items-center justify-center w-6 h-6">
               <img src={features_land} className="w-6 h-6" alt="property" />

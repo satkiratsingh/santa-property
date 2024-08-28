@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import { propertyListings } from "../static/propertyListings";
+// import { propertyListings } from "../static/propertyListings";
 import PropertyCard from "../components/PropertyListings/PropertyCard";
 import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
+import { getProperties } from "../utils/sanity";
 
 const Properties = () => {
+  const [propertyListings, setPropertyListings] = useState([]);
+
+  useEffect(() => {
+    getProperties().then((data) => {
+      setPropertyListings(data);
+    });
+  }, []);
+
   return (
     <div>
       <div className="pb-8 max-md:pb-6 max-sm:pb-4 bg-gradient-to-br from-[#048853] to-[#02452A]">
@@ -24,6 +33,7 @@ const Properties = () => {
         </h1>
         <div className="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-2">
           {propertyListings &&
+            propertyListings.length &&
             propertyListings.map((item, index) => (
               <div key={index} className="w-full p-6 max-md:p-4">
                 <PropertyCard {...item} />

@@ -27,13 +27,13 @@ const Footer = ({ showContact }) => {
 
           <div className="flex items-center justify-between md:gap-8 max-md:flex-col">
             <p className="flex max-w-[500px] max-sm:flex-col items-center gap-2 mt-2 text-white">
-              <div className="flex items-center gap-2">
+              <span className="flex items-center gap-2">
                 <span className="material-symbols-outlined">call</span>
                 <a className="hover:scale-105" href="tel:+918288847444">
                   +91 82888 47444
                 </a>
                 ,{" "}
-              </div>
+              </span>
               <a className="hover:scale-105" href="tel:+918836509463">
                 +91 88365 09463
               </a>

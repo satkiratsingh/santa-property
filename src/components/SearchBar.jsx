@@ -35,7 +35,9 @@ const SearchBar = () => {
           <div className="flex flex-row h-full max-md:hidden">
             <Dropdown
               icon={
-                <span class="material-symbols-outlined text-[28px]">home</span>
+                <span className="material-symbols-outlined text-[28px]">
+                  home
+                </span>
               }
               data={["Residential", "Commercial"]}
               title={"Property Type"}
@@ -46,7 +48,7 @@ const SearchBar = () => {
             <div className="h-full border-l-2 border-r-2 border-[#00985B]">
               <Dropdown
                 icon={
-                  <span class="material-symbols-outlined text-[28px]">
+                  <span className="material-symbols-outlined text-[28px]">
                     payments
                   </span>
                 }
@@ -86,7 +88,7 @@ const SearchBar = () => {
         <div className="h-full z-40 border-t-2 border-[#00985B] rounded-bl-lg bg-[#ffffffc5]">
           <Dropdown
             icon={
-              <span class="material-symbols-outlined text-[28px] max-sm:text-[18px]">
+              <span className="material-symbols-outlined text-[28px] max-sm:text-[18px]">
                 home
               </span>
             }
@@ -100,7 +102,7 @@ const SearchBar = () => {
         <div className="h-full backdrop-blur-2xl z-40 border-t-2 rounded-br-lg bg-[#ffffffc5] border-l-2 border-[#00985B]">
           <Dropdown
             icon={
-              <span class="material-symbols-outlined text-[28px] max-sm:text-[18px]">
+              <span className="material-symbols-outlined text-[28px] max-sm:text-[18px]">
                 payments
               </span>
             }

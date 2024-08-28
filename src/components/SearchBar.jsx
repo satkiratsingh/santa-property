@@ -2,8 +2,9 @@ import React from "react";
 import Dropdown from "./UI/Dropdown";
 import { useSearchStore } from "../stores/useSearchStore";
 import { useNavigate } from "react-router-dom";
+import { usePropertiesStore } from "../stores/usePropertiesStore";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
   const navigate = useNavigate();
 
   const query = useSearchStore((state) => state.query);
@@ -12,6 +13,11 @@ const SearchBar = ({ onSearch }) => {
   const setQuery = useSearchStore((state) => state.setQuery);
   const setPropertyType = useSearchStore((state) => state.setPropertyType);
   const setPriceRange = useSearchStore((state) => state.setPriceRange);
+
+  // Stores
+  const setPropertiesBySearch = usePropertiesStore(
+    (state) => state.setPropertiesBySearch
+  );
 
   return (
     <div className="flex items-center justify-center max-md:flex-col">
@@ -66,9 +72,8 @@ const SearchBar = ({ onSearch }) => {
             e.preventDefault();
             if (window.location.pathname !== "/properties") {
               navigate("/properties");
-            } else {
-              onSearch(query);
             }
+            setPropertiesBySearch(query);
           }}
         >
           Search

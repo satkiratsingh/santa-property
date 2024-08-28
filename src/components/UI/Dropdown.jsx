@@ -16,7 +16,7 @@ const Dropdown = ({ title, data, icon, selectedItem }) => {
       >
         {icon}
         <p className="text-[14px] max-sm:text-[10px]">{title}</p>
-        <span class="material-symbols-outlined">
+        <span className="material-symbols-outlined">
           {open ? "keyboard_arrow_up" : "keyboard_arrow_down"}
         </span>
       </div>

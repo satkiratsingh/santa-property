@@ -4,12 +4,15 @@ import listing_3 from "../images/property-listings/3.png";
 
 export const propertyListings = [
   {
+    title: "Property Title",
+    description: "Property Description",
+    propertyType: "Property Type",
     image: listing_1,
     price: "Price",
     location: "Property Location",
-    bed: "3",
-    bath: "4",
-    land_size: "150 sq yards.",
+    bedrooms: "3",
+    bathrooms: "4",
+    areaSize: "150 sq yards.",
   },
   {
     image: listing_2,

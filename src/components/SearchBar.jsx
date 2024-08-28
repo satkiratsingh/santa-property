@@ -26,7 +26,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="flex mt-14 max-md:flex-col items-center justify-center w-[70%] max-sm:w-[90%] max-md:w-[80%]">
+    <div className="flex items-center justify-center max-md:flex-col">
       <div className="flex w-full max-md:h-[60px] max-sm:h-[40px] h-[80px]">
         <div
           className="flex-1 bg-[#ffffffc5] flex items-center rounded-l-lg max-md:rounded-bl-none h-full"
@@ -74,7 +74,7 @@ const SearchBar = () => {
           />
         </div>
         <button
-          className="bg-[#00985B] hover:font-bold rounded-r-lg font-medium max-sm:text-[14px] text-[30px] max-sm:w-[70px] w-[140px] text-white h-full"
+          className="bg-[#00985B] hover:font-bold rounded-r-lg font-medium max-sm:text-[14px] text-[28px] max-sm:w-[70px] w-[140px] text-white h-full"
           style={{ boxShadow: searchQuery.length > 0 && "0 0 10px #6bbb9b" }}
           onClick={handleSubmit}
         >

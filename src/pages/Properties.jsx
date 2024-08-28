@@ -2,17 +2,22 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { propertyListings } from "../static/propertyListings";
 import PropertyCard from "../components/PropertyListings/PropertyCard";
+import SearchBar from "../components/SearchBar";
+import Footer from "../components/Footer";
 
 const Properties = () => {
   return (
     <div>
-      <div className="pb-8 bg-gradient-to-br from-[#048853] to-[#02452A]">
-        <Navbar />
+      <div className="pb-8 max-md:pb-6 max-sm:pb-0 bg-gradient-to-br from-[#048853] to-[#02452A]">
+        <Navbar hideSideButton />
+        <div className="w-full px-20 mt-8">
+          <SearchBar />
+        </div>
       </div>
 
       <section
         id="property-listings"
-        className="flex flex-col items-center justify-center p-20 max-md:py-6 max-md:p-2"
+        className="flex flex-col items-center justify-center px-20 py-10 max-md:py-6 max-md:p-2"
       >
         <h1 className="text-[48px] max-sm:text-[30px] font-semibold text-center text-[#048853] ">
           Property Listings
@@ -31,6 +36,8 @@ const Properties = () => {
           </button>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

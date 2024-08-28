@@ -9,6 +9,7 @@ import greenInteriorRoom from "../images/green-interior-room.png";
 import contactUsBG from "../images/contact-us-bg.png";
 import SearchBar from "../components/SearchBar";
 import ContactForm from "../components/ContactForm";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
@@ -84,7 +85,9 @@ function Home() {
             Now you can save yourself all the stress, time, and hidden costs,
             with hundreds of homes for you
           </p>
-          <SearchBar />
+          <div className="mt-14 w-[70%] max-sm:w-[90%] max-md:w-[80%]">
+            <SearchBar />
+          </div>
         </div>
       </section>
 
@@ -165,6 +168,8 @@ function Home() {
               <a
                 href="https://www.facebook.com"
                 className="mt-3 hover:scale-125 hover:cursor-pointer"
+                target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -182,6 +187,8 @@ function Home() {
               <a
                 href="https://www.twitter.com"
                 className="hover:scale-125 hover:cursor-pointer"
+                target="_blank"
+                rel="noreferrer"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -223,22 +230,7 @@ function Home() {
         </div>
       </section>
 
-      <footer className="bg-black h-[24vh] px-20 items-center flex flex-col justify-center w-full">
-        <div className="flex flex-row items-center justify-between w-full max-sm:gap-4 max-sm:flex-col-reverse">
-          <h1 className={`text-[20px] font-bold text-white`}>Santa Property</h1>
-          <div className="flex flex-row items-center gap-4 text-white">
-            <a className="hover:font-bold" href="#/">
-              Home
-            </a>
-            <a className="hover:font-bold" href="#/about">
-              About
-            </a>
-            <a className="hover:font-bold" href="#/contact">
-              Contact
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ hideSideButton }) => {
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -61,12 +61,14 @@ const Navbar = () => {
           open ? "max-sm:flex-col" : "max-sm:hidden"
         } md:basis-1/3`}
       >
-        <a
-          href="/#search"
-          className="hover:shadow-[0_0_14px_1px_#2d2d2d] flex items-center justify-center self-end px-8 py-2 bg-white text-[#048853] w-32 hover:font-bold font-semibold"
-        >
-          Search
-        </a>
+        {!hideSideButton && (
+          <a
+            href="/properties"
+            className="hover:shadow-[0_0_14px_1px_#2d2d2d] flex items-center justify-center self-end px-8 py-2 bg-white text-[#048853] w-32 hover:font-bold font-semibold"
+          >
+            Search
+          </a>
+        )}
       </div>
     </nav>
   );

@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import sidelayer from "../images/sidelayer_hero_bg.png";
 import house from "../images/house_hero_bg.png";
 import Carousel from "../components/Services/Carousel";
 import PropertyCard from "../components/PropertyListings/PropertyCard";
-import { propertyListings } from "../static/propertyListings";
 import greenInteriorRoom from "../images/green-interior-room.png";
 import contactUsBG from "../images/contact-us-bg.png";
 import SearchBar from "../components/SearchBar";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
+import { getThreeProperties } from "../utils/sanity";
 
 function Home() {
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    getThreeProperties().then((data) => {
+      setProperties(data);
+    });
+  }, []);
+
   return (
     <div>
       <header className="h-[100vh] max-md:h-[85vh] relative flex flex-col bg-gradient-to-br from-[#048853] to-[#02452A]">
@@ -99,8 +107,9 @@ function Home() {
           Property Listings
         </h1>
         <div className="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-2">
-          {propertyListings &&
-            propertyListings.map((item, index) => (
+          {properties &&
+            properties.length &&
+            properties.map((item, index) => (
               <div key={index} className="w-full p-6 max-md:p-4">
                 <PropertyCard {...item} />
               </div>

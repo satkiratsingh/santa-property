@@ -8,9 +8,9 @@ import Footer from "../components/Footer";
 const Properties = () => {
   return (
     <div>
-      <div className="pb-8 max-md:pb-6 max-sm:pb-0 bg-gradient-to-br from-[#048853] to-[#02452A]">
+      <div className="pb-8 max-md:pb-6 max-sm:pb-4 bg-gradient-to-br from-[#048853] to-[#02452A]">
         <Navbar hideSideButton />
-        <div className="w-full px-20 mt-8">
+        <div className="w-full px-20 mt-8 max-md:px-10 max-sm:px-4 max-md:mt-6 max-sm:mt-0">
           <SearchBar />
         </div>
       </div>
@@ -37,7 +37,7 @@ const Properties = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer showContact />
     </div>
   );
 };

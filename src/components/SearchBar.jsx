@@ -83,7 +83,7 @@ const SearchBar = () => {
       </div>
 
       <div className="flex md:hidden w-full h-[60px] max-sm:h-[30px]">
-        <div className="h-full border-t-2 border-[#00985B] rounded-bl-lg bg-[#ffffffc5]">
+        <div className="h-full z-40 border-t-2 border-[#00985B] rounded-bl-lg bg-[#ffffffc5]">
           <Dropdown
             icon={
               <span class="material-symbols-outlined text-[28px] max-sm:text-[18px]">
@@ -97,7 +97,7 @@ const SearchBar = () => {
             }
           />
         </div>
-        <div className="h-full border-t-2 rounded-br-lg bg-[#ffffffc5] border-l-2 border-[#00985B]">
+        <div className="h-full backdrop-blur-2xl z-40 border-t-2 rounded-br-lg bg-[#ffffffc5] border-l-2 border-[#00985B]">
           <Dropdown
             icon={
               <span class="material-symbols-outlined text-[28px] max-sm:text-[18px]">

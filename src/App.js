@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Properties from "./pages/Properties";
+import Property from "./pages/Property";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/properties" element={<Properties />} />
+        <Route path="/property/:id" element={<Property />} />
         <Route path="*" element={<FallbackScreen />} />
       </Routes>
     </Router>

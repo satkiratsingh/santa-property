@@ -4,8 +4,10 @@ import features_bath from "../../images/icons/features_bath.png";
 import features_land from "../../images/icons/features_landsize.png";
 import { urlFor } from "../../utils/imageUrl";
 import { formatPriceInr } from "../../utils/formatting";
+import { useNavigate } from "react-router-dom";
 
 const PropertyCard = ({
+  _id,
   title,
   image,
   price,
@@ -14,9 +16,16 @@ const PropertyCard = ({
   bathrooms,
   areaSize,
 }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex group flex-col rounded-md hover:cursor-pointer hover:bg-gradient-to-br hover:from-[#00985B] hover:via-[#00985B] hover:to-[#002A19] items-center w-full bg-white">
-      <img src={urlFor(image).url()} className="m-1" alt={title} />
+    <div
+      onClick={() => navigate(`/property/${_id}`)}
+      className="flex group flex-col rounded-md hover:cursor-pointer hover:bg-gradient-to-br hover:from-[#00985B] hover:via-[#00985B] hover:to-[#002A19] items-center w-full bg-white"
+    >
+      <div className="w-full p-1">
+        <img src={urlFor(image).url()} alt={title} />
+      </div>
 
       <div className="w-full px-4 py-2 leading-6">
         <h2 className="text-[24px] group-hover:text-white transition-all duration-300 font-semibold">

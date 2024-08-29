@@ -42,7 +42,7 @@ const Properties = () => {
           </div>
         ) : null}
         {propertyListings && propertyListings.length && !isLoading ? (
-          <div className="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-2">
+          <div className="grid grid-cols-4 max-sm:grid-cols-1 max-md:grid-cols-2">
             {propertyListings &&
               propertyListings.length &&
               propertyListings.map((item, index) => (

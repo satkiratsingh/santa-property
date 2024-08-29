@@ -32,3 +32,9 @@ export async function searchPropertyByNameOrLocation(searchQuery) {
   });
   return properties;
 }
+
+export async function getPropertyByID(id) {
+  const query = `*[_type == "property" && _id == "${id}"]`;
+  const properties = await sanityClient.fetch(query);
+  return properties[0];
+}

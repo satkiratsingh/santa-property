@@ -43,4 +43,14 @@ code {
     backdrop-filter: blur(10px);
     border-radius: 10px;
   }
+
+  .thin-x-scrollbar::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .thin-x-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(179, 179, 179, 0.856);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+  }
 }

@@ -27,13 +27,14 @@ const Navbar = ({ hideSideButton }) => {
         close
       </span>
       <a
-        onClick={() => setOpen(false)}
         href="/"
-        className={`text-[24px] ${
-          !open ? "sm:basis-1/3" : "md:basis-1/3"
-        } font-bold text-white`}
+        onClick={() => setOpen(false)}
+        className={`${!open ? "sm:basis-1/3" : "md:basis-1/3"}`}
       >
-        Santa Property
+        <p className={`text-[24px] leading-6 font-bold text-white`}>
+          Santa Property
+        </p>
+        <p className={`text-[11px] text-white`}>Developers & Promoters</p>
       </a>
       <span
         onClick={handleClick}

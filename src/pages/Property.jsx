@@ -6,11 +6,9 @@ import Footer from "../components/Footer";
 import features_bed from "../images/icons/features_bed.png";
 import features_bath from "../images/icons/features_bath.png";
 import features_land from "../images/icons/features_landsize.png";
-import example from "../images/property-listings/1.png";
-import example2 from "../images/property-listings/2.png";
-import example3 from "../images/property-listings/3.png";
 import { formatPriceInr } from "../utils/formatting";
 import { urlFor } from "../utils/imageUrl";
+import { getYouTubeVideoId } from "../utils/helper";
 
 const Property = () => {
   const _id = useParams().id;
@@ -23,7 +21,6 @@ const Property = () => {
       .then((data) => {
         setProperty(data);
         setMainImage(urlFor(data.image).url());
-        console.log(data);
       })
       .catch((error) => {
         console.log(error);
@@ -41,10 +38,16 @@ const Property = () => {
           <div className="flex items-center justify-center flex-1 w-full h-full">
             {mainImage &&
             mainImage.length > 0 &&
-            mainImage.includes("youtube") ? (
+            (mainImage.includes("youtube") ||
+              mainImage.includes("youtu.be") ||
+              mainImage.includes("vimeo") ||
+              mainImage.includes("vimeo.com")) ? (
               <iframe
-                src="https://www.youtube.com/embed/fRJ03btNsao"
-                title="example"
+                src={
+                  "https://www.youtube.com/embed/" + property?.youtubeVideoId ??
+                  getYouTubeVideoId(property?.youtubeVideoLink)
+                }
+                title={property?.title + "_video"}
                 className="w-full h-full min-h-[320px] py-1"
                 allowFullScreen
               />
@@ -52,51 +55,55 @@ const Property = () => {
               <img
                 className="object-contain object-center h-full"
                 src={mainImage}
-                alt="example"
+                alt={property?.title}
               />
             )}
           </div>
 
-          <div className="flex w-full h-32 overflow-x-auto snap thin-x-scrollbar max-sm:h-14">
-            <div className="w-full h-full border-2 basis-1/4 flex-shrink-0 border-white hover:border-[#048853]">
-              <img
-                onClick={(e) => setMainImage(e.target.src)}
-                src={example}
-                alt="example2"
-                className="object-contain object-center w-full h-full hover:cursor-pointer"
-              />
+          {(property?.images?.length || property?.youtubeVideoLink) && (
+            <div className="flex w-full h-32 overflow-x-auto snap thin-x-scrollbar max-sm:h-14">
+              {property?.images?.length > 0 &&
+                property?.images?.map((img, index) => (
+                  <div
+                    key={index}
+                    className="w-full h-full border-2 basis-1/4 flex-shrink-0 border-white hover:border-[#048853]"
+                  >
+                    <img
+                      onClick={(e) => setMainImage(urlFor(img).url())}
+                      src={urlFor(img).url()}
+                      alt={property?.title + "_img_" + index}
+                      className="object-contain object-center w-full h-full hover:cursor-pointer"
+                    />
+                  </div>
+                ))}
+              {property?.youtubeVideoLink && (
+                <div
+                  onClick={(e) => setMainImage(property?.youtubeVideoLink)}
+                  className="w-full h-full border-2 basis-1/4 flex-shrink-0 relative group border-white hover:border-[#048853]"
+                >
+                  {property?.youtubeVideoId ? (
+                    <img
+                      className="object-contain object-center w-full h-full hover:cursor-pointer"
+                      title="example"
+                      src={`https://img.youtube.com/vi/${property?.youtubeVideoId}/hqdefault.jpg`}
+                      alt="example2"
+                    />
+                  ) : (
+                    <div className="flex items-center justify-center w-full h-full bg-white">
+                      <h1 className="font-bold text-[#923c3c] text-[32px]">
+                        Video
+                      </h1>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-[#0000003f] pointer-events-none">
+                    <span className="absolute text-white text-[32px] transform -translate-x-1/2 -translate-y-1/2 material-symbols-outlined top-1/2 left-1/2">
+                      play_circle
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="w-full h-full border-2 basis-1/4 flex-shrink-0 border-white hover:border-[#048853]">
-              <img
-                onClick={(e) => setMainImage(e.target.src)}
-                src={example2}
-                alt="example2"
-                className="object-contain object-center w-full h-full hover:cursor-pointer"
-              />
-            </div>
-            <div className="w-full h-full border-2 basis-1/4 flex-shrink-0 border-white hover:border-[#048853]">
-              <img
-                onClick={(e) => setMainImage(e.target.src)}
-                src={example3}
-                alt="example2"
-                className="object-contain object-center w-full h-full hover:cursor-pointer"
-              />
-            </div>
-            <div className="w-full h-full border-2 basis-1/4 flex-shrink-0 relative group border-white hover:border-[#048853]">
-              <img
-                onClick={(e) => setMainImage(e.target.getAttribute("src"))}
-                className="object-contain object-center w-full h-full hover:cursor-pointer"
-                title="example"
-                src="https://img.youtube.com/vi/tgbNymZ7vqY/maxresdefault.jpg"
-                alt="example2"
-              />
-              <div className="absolute transform -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2">
-                <span className="text-white material-symbols-outlined text-[40px]">
-                  play_circle
-                </span>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
 
         <div className="flex flex-col p-10 max-md:p-4">

@@ -24,7 +24,7 @@ export const usePropertiesStore = create((set) => ({
   setHomePageListings: async () => {
     set({ isLoading: true });
     try {
-      const homePageListings = await getPropertyByLimit(4);
+      const homePageListings = await getPropertyByLimit(3);
       set({ homePageListings });
     } catch (error) {
       console.log(error);

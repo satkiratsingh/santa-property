@@ -122,9 +122,12 @@ const Property = () => {
           </div>
 
           <div className="flex items-center justify-center p-6">
-            <button className="px-5 py-2 text-[24px] max-sm:py-1 max-sm:px-3 max-sm:text-[16px] hover:border-2 hover:shadow-[0_0_14px_1px_gray] font-semibold max-sm:h-12 bg-[#00985B] text-white rounded-lg">
+            <a
+              href="tel:+918288847444"
+              className="px-5 py-2 text-[24px] max-sm:py-1 max-sm:px-3 max-sm:text-[16px] hover:border-2 hover:shadow-[0_0_14px_1px_gray] font-semibold max-sm:h-12 bg-[#00985B] text-white rounded-lg"
+            >
               Contact Agent
-            </button>
+            </a>
           </div>
 
           <div className="flex flex-row items-center justify-between w-full px-4 py-2 mb-6">

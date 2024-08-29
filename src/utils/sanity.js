@@ -13,12 +13,6 @@ export async function getProperties() {
   return properties;
 }
 
-export async function getThreeProperties() {
-  const query = `*[_type == "property"][0..2]`;
-  const properties = await sanityClient.fetch(query);
-  return properties;
-}
-
 export async function getPropertyByLimit(limit) {
   const query = `*[_type == "property"][0..${limit}]`;
   const properties = await sanityClient.fetch(query);

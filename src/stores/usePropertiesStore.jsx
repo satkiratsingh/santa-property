@@ -2,7 +2,6 @@ import { create } from "zustand";
 import {
   getProperties,
   getPropertyByLimit,
-  getThreeProperties,
   searchPropertyByNameOrLocation,
 } from "../utils/sanity";
 
@@ -25,7 +24,7 @@ export const usePropertiesStore = create((set) => ({
   setHomePageListings: async () => {
     set({ isLoading: true });
     try {
-      const homePageListings = await getThreeProperties();
+      const homePageListings = await getPropertyByLimit(4);
       set({ homePageListings });
     } catch (error) {
       console.log(error);

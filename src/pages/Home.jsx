@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import sidelayer from "../images/sidelayer_hero_bg.png";
 import house from "../images/house_hero_bg.png";
@@ -9,16 +9,17 @@ import contactUsBG from "../images/contact-us-bg.png";
 import SearchBar from "../components/SearchBar";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
-import { getThreeProperties } from "../utils/sanity";
+import { usePropertiesStore } from "../stores/usePropertiesStore";
 
 function Home() {
-  const [properties, setProperties] = useState([]);
+  const properties = usePropertiesStore((state) => state.homePageListings);
+  const setHomePageListings = usePropertiesStore(
+    (state) => state.setHomePageListings
+  );
 
   useEffect(() => {
-    getThreeProperties().then((data) => {
-      setProperties(data);
-    });
-  }, []);
+    setHomePageListings();
+  }, [setHomePageListings]);
 
   return (
     <div>
@@ -155,8 +156,8 @@ function Home() {
                 +91 82888 47444
               </a>
               ,{" "}
-              <a className="hover:scale-105" href="tel:+918836509463">
-                +91 88365 09463
+              <a className="hover:scale-105" href="tel:+918837509463">
+                +91 88375 09463
               </a>
             </p>
             <p className="flex max-w-[500px] items-center gap-2 mt-2 text-white">

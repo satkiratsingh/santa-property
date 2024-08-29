@@ -20,11 +20,18 @@ const PropertyCard = ({
 
   return (
     <div
-      onClick={() => navigate(`/property/${_id}`)}
+      onClick={() => {
+        navigate(`/property/${_id}`);
+        window.scrollTo(0, 0);
+      }}
       className="flex group flex-col rounded-md hover:cursor-pointer hover:bg-gradient-to-br hover:from-[#00985B] hover:via-[#00985B] hover:to-[#002A19] items-center w-full bg-white"
     >
-      <div className="w-full p-1">
-        <img src={urlFor(image).url()} alt={title} />
+      <div className="w-full p-1 h-[300px]">
+        <img
+          className="object-fill w-full object-center h-[300px]"
+          src={urlFor(image).url()}
+          alt={title}
+        />
       </div>
 
       <div className="w-full px-4 py-2 leading-6">

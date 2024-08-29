@@ -72,6 +72,7 @@ const SearchBar = () => {
             e.preventDefault();
             if (window.location.pathname !== "/properties") {
               navigate("/properties");
+              window.scrollTo(0, 0);
             }
             setPropertiesBySearch(query);
           }}

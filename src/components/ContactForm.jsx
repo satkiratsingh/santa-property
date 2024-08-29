@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ContactForm = () => {
-  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
   const [question, setQuestion] = useState("");
 
   return (
@@ -11,9 +11,9 @@ const ContactForm = () => {
       </h1>
       <input
         className="w-full h-16 max-sm:h-12 px-5 border border-[#00985B] rounded-lg"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter your email"
+        value={contact}
+        onChange={(e) => setContact(e.target.value)}
+        placeholder="Enter your Contact Number"
       />
       <input
         className="w-full h-16 max-sm:h-12 px-5 border border-[#00985B] rounded-lg"
@@ -22,9 +22,14 @@ const ContactForm = () => {
         placeholder="Your question"
       />
 
-      <button className="w-full text-[24px] font-semibold h-16 max-sm:h-12 bg-[#00985B] text-white rounded-lg">
+      <a
+        href={`mailto:ashokbagga18@gmail.com?subject=Property Inquiry&body=${
+          question + "%0D%0AContact No. : " + contact
+        }`}
+        className="w-full flex items-center justify-center text-[24px] font-semibold h-16 max-sm:h-12 bg-[#00985B] text-white rounded-lg"
+      >
         Submit
-      </button>
+      </a>
     </div>
   );
 };

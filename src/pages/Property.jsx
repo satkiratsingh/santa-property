@@ -48,12 +48,12 @@ const Property = () => {
                   getYouTubeVideoId(property?.youtubeVideoLink)
                 }
                 title={property?.title + "_video"}
-                className="w-full h-full min-h-[320px] py-1"
+                className="w-full h-full min-h-[320px] max-sm:min-h-[140px] max-sm:max-h-[180px] max-h-[400px] py-1"
                 allowFullScreen
               />
             ) : (
               <img
-                className="object-contain object-center h-full"
+                className="object-contain object-center h-[500px] max-md:h-[350px] max-sm:h-[250px]"
                 src={mainImage}
                 alt={property?.title}
               />

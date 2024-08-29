@@ -106,7 +106,7 @@ function Home() {
         <h1 className="text-[48px] max-sm:text-[30px] font-semibold text-center text-[#048853] ">
           Property Listings
         </h1>
-        <div className="grid grid-cols-3 max-sm:grid-cols-1 max-md:grid-cols-2">
+        <div className="grid grid-cols-4 max-sm:grid-cols-1 max-md:grid-cols-2">
           {properties &&
             properties.length &&
             properties.map((item, index) => (

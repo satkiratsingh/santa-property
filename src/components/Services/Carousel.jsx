@@ -79,7 +79,7 @@ const Carousel = () => {
         servicesCard.map((item, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-full h-[350px] md:w-1/3 md:snap-none snap-always snap-center"
+            className="flex-shrink-0 w-full h-[350px] md:w-1/4 md:snap-none snap-always snap-center"
           >
             <ServicesCard {...item} />
           </div>

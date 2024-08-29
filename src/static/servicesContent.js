@@ -1,6 +1,7 @@
 import house_icon from "../images/icons/house_1.png";
 import town_icon from "../images/icons/town_1.png";
 import assets_icon from "../images/icons/assets_1.png";
+import builder_icon from "../images/icons/builder_1.png";
 
 export const servicesCard = [
   {
@@ -14,6 +15,12 @@ export const servicesCard = [
     title: "Commercial",
     content:
       "Expand your business in prime locations. Discover the perfect commercial spaces with modern amenities and high footfall.",
+  },
+  {
+    icon: builder_icon,
+    title: "Build Property",
+    content:
+      "We can help you build your dream property. We will work with you to create a stunning and stylish home that meets your specific needs.",
   },
   {
     icon: assets_icon,
